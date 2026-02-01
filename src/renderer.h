@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "SDL.h"
+#include "sdl_wrappers.h"
 #include "snake.h"
 
 class Renderer {
@@ -12,11 +13,12 @@ class Renderer {
   ~Renderer();
 
   void Render(Snake const snake, SDL_Point const &food);
-  void UpdateWindowTitle(int score, int fps);
+ void UpdateWindowTitle(int score, int fps);
 
  private:
-  SDL_Window *sdl_window;
-  SDL_Renderer *sdl_renderer;
+  SdlVideo sdl_video;
+  SdlWindow sdl_window;
+  SdlRenderer sdl_renderer;
 
   const std::size_t screen_width;
   const std::size_t screen_height;
