@@ -3,7 +3,7 @@
 #include <thread>
 #include <utility>
 
-StatsLogger::StatsLogger(std::filesystem::path log_path, Uint32 start_time_ms) : _log_path(std::move(log_path)), _start_time_ms(start_time_ms) {
+StatsLogger::StatsLogger(const std::filesystem::path& log_path, Uint32 start_time_ms) : _log_path(log_path), _start_time_ms(start_time_ms) {
     _thread = std::thread(&StatsLogger::listener, this);
 }
 
