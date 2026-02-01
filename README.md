@@ -30,6 +30,37 @@ In this project, you can build your own C++ application or extend this Snake gam
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
 
+## Build/Run (Udacity Workspace)
+
+1. From the repo root: `mkdir -p build && cd build`
+2. Configure: `cmake ..`
+3. Build: `make`
+4. Run: `./SnakeGame`
+
+## New Features Added
+
+* Asynchronous stats logging on a background thread.
+* Log file: `stats.txt` (appended, one line per event).
+* Logged events: game start, score updates, and game end with relative timestamps.
+
+## Rubric Mapping
+
+### Compiling & Testing
+* Build/run steps documented in README (this file).
+
+### Loops/Functions/I-O
+* File I/O: stats log appended during gameplay (file: `src/statslogger.cpp`, lines: 28-35).
+
+### OOP
+* StatsLogger class + SDL RAII wrappers (files: `src/statslogger.h`, lines: 19-39; `src/sdl_wrappers.h`, lines: 7-96).
+
+### Memory Management
+* RAII for SDL resources via wrapper classes (file: `src/sdl_wrappers.h`, lines: 7-96).
+* Copy/move control for resource-owning classes (file: `src/sdl_wrappers.h`, lines: 18-83).
+
+### Concurrency
+* Worker thread with mutex/locks + condition_variable (file: `src/statslogger.cpp`, lines: 6-51).
+
 
 ## CC Attribution-ShareAlike 4.0 International
 
