@@ -20,6 +20,10 @@ class StatsLogger {
     public:
         StatsLogger(std::filesystem::path log_path, Uint32 start_time_ms);
         ~StatsLogger();
+        StatsLogger(const StatsLogger&) = delete;
+        StatsLogger& operator=(const StatsLogger&) = delete;
+        StatsLogger(StatsLogger&&) = delete;
+        StatsLogger& operator=(StatsLogger&&) = delete;
         void queueEvent(Event&& event);
         void logEvent(const Event& event);
         void listener();
